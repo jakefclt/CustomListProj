@@ -12,11 +12,14 @@ namespace CustomListClassTest
 
             //Arrange
             CustomList<int> list = new CustomList<int>();
+            int value1 = 2;
             int expected = 1;
+            int actual;
             //Act
-            list.Add(2);
+            list.Add(value1);
+            actual = list.Count;
             //Assert
-            Assert.AreEqual(expected, list.Count);
+            Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
@@ -25,23 +28,23 @@ namespace CustomListClassTest
         {
             CustomList<int> list = new CustomList<int>();
             int expected = 5;
-
+            int actual = list[0];
             list.Add(expected);
 
-            Assert.AreEqual(expected, list[0]);
+            Assert.AreEqual(expected, actual);
         }
         [TestMethod]
         public void Add_TwoValues_VerifyIndex1()
         {
             CustomList<int> list = new CustomList<int>();
-            int expected = 15;
+            int expected = 10;
             int value1 = 5;
             int value2 = 10;
-
+            int actual = list[1];
             list.Add(value1);
             list.Add(value2);
 
-            Assert.AreEqual(expected, list[1]);
+            Assert.AreEqual(expected, actual);
 
 
         }
@@ -52,11 +55,11 @@ namespace CustomListClassTest
             int expected = 2;
             int value1 = 5;
             int value2 = 15;
-
+            int actual = list.Count;
             list.Add(value1);
             list.Add(value2);
 
-            Assert.AreEqual(expected, list.Count);
+            Assert.AreEqual(expected, actual);
 
         }
         [TestMethod]
@@ -108,12 +111,12 @@ namespace CustomListClassTest
             int expected = 1;
             int value1 = 5;
             int value2 = 10;
-
+            int actual = list.Count;
             list.Add(value1);
             list.Add(value2);
             list.Remove(value2);
 
-            Assert.AreEqual(expected, list.Count);
+            Assert.AreEqual(expected, actual);
 
         }
         [TestMethod]
@@ -155,15 +158,15 @@ namespace CustomListClassTest
             Assert.AreEqual(expected, list[1]);
         }
         [TestMethod]
-        public void Remove_Value_ReturnLastIndex()
+        public void Remove_Value_FromFirstIndexFound() 
         {
             CustomList<int> list = new CustomList<int>();
-            int expected = 30;
-            int value1 = 10;
-            int value2 = 15;
-            int value3 = 20;
-            int value4 = 25;
-            int value5 = 30;
+            int expected = 2;
+            int value1 = 5;
+            int value2 = 2;
+            int value3 = 5;
+            int value4 = 5;
+            int value5 = 5;
 
             list.Add(value1);
             list.Add(value2);
@@ -171,10 +174,13 @@ namespace CustomListClassTest
             list.Add(value4);
             list.Add(value5);
 
-            list.Remove(value2);
+            list.Remove(5);
 
-            Assert.AreEqual(expected, list[list.Count -1]);
+            Assert.AreEqual(expected, list[0]);
+
         }
+
+        
     }
 
 }
