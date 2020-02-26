@@ -181,6 +181,49 @@ namespace CustomListClassTest
             Assert.AreEqual(expected, list[0]);
 
         }
+        [TestMethod]
+        public void Convert_SingleValueIndex_ToString()
+        {
+
+            CustomList<int> list = new CustomList<int>();
+            string expected = "5";
+            int value1 = 5;
+
+            list.Add(value1);
+            string actual = list.ToString();
+
+            Assert.AreEqual(expected, actual);
+                
+
+
+
+        }
+
+        [TestMethod]
+
+        public void Convert_MultipleValuesIndex_ToString()
+        {
+            CustomList<int> list = new CustomList<int>();
+
+            string expected = "54321";
+            int value1 = 5;
+            int value2 = 4;
+            int value3 = 3;
+            int value4 = 2;
+            int value5 = 1;
+           
+
+            list.Add(value1);
+            list.Add(value2);
+            list.Add(value3);
+            list.Add(value4);
+            list.Add(value5);
+            string actual = list.ToString();
+            
+
+            Assert.AreEqual(expected, actual);
+
+        }
 
 
     }
