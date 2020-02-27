@@ -298,7 +298,7 @@ namespace CustomListClassTest
         //OverLoad -Operator//////////////////////////////////////////////////////////////////////////////
         [TestMethod]
 
-        public void MinusOverload_TwoInstances_VerifyResult()
+        public void MinusOverload_SubtractTwoInstances_VerifyResult()
         {
             CustomList<int> list = new CustomList<int>();
             CustomList<int> secondList = new CustomList<int>();
@@ -307,11 +307,14 @@ namespace CustomListClassTest
             list.Add(1);
             list.Add(3);
             list.Add(5);
-            secondList.Add(2);
             secondList.Add(1);
-            secondList.Add(6);
+            secondList.Add(2);
+            secondList.Add(3);
 
             result = list - secondList;
+            int expected = 5;
+            int actual = result[0];
+            Assert.AreEqual(expected, actual);
 
         }
 
