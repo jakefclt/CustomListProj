@@ -4,8 +4,10 @@ using CustomListClassProject;
 namespace CustomListClassTest
 {
     [TestClass]
+  
     public class UnitTest1
     {
+        //Add An Object/////////////////////////////////////////////////////////////////////////////////////////////////////
         [TestMethod]
         public void Add_OneValue_IncrementCount()
         {
@@ -106,6 +108,7 @@ namespace CustomListClassTest
             Assert.AreEqual(expected, list[0]);
 
         }
+        //Remove An Object/////////////////////////////////////////////////////////////////////////////////////////////////
         [TestMethod]
         public void Remove_OneValue_DecrementCount()
         {
@@ -181,6 +184,8 @@ namespace CustomListClassTest
             Assert.AreEqual(expected, list[0]);
 
         }
+
+        //Convert ToString//////////////////////////////////////////////////////////////////////////////////////////////
         [TestMethod]
         public void Convert_SingleValueIndex_ToString()
         {
@@ -224,8 +229,92 @@ namespace CustomListClassTest
             Assert.AreEqual(expected, actual);
 
         }
+    
+        //OverLoad +Operator/////////////////////////////////////////////////////////////////////////////////////
+        [TestMethod]
+        public void AddOverload_TwoInstances_VerifyIndexZero()
+        {
+            CustomList<int> list = new CustomList<int>();                       
+            CustomList<int> secondList = new CustomList<int>();
+            CustomList<int> result = new CustomList<int>();
+            
+            list.Add(1);
+            list.Add(3);
+            list.Add(5);
+            secondList.Add(2);
+            secondList.Add(4);
+            secondList.Add(6);
+            
+            result = list + secondList;
+            int expected = 1;
+            int actual = result[0];
+
+            Assert.AreEqual(expected, actual);
 
 
-    }
+        }
+  
+        [TestMethod]
+        public void AddOverload_TwoInstances_VerifyIndexThree()
+        {
+            CustomList<int> list = new CustomList<int>();
+            CustomList<int> secondList = new CustomList<int>();
+            CustomList<int> result = new CustomList<int>();
+
+            list.Add(1);
+            list.Add(3);
+            list.Add(5);
+            secondList.Add(2);
+            secondList.Add(4);
+            secondList.Add(6);
+
+            result = list + secondList;
+            int expected = 2;
+            int actual = result[3];
+
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void AddOverload_TwoInstances_VerifyCountResultsList()
+        {
+            CustomList<int> list = new CustomList<int>();
+            CustomList<int> secondList = new CustomList<int>();
+            CustomList<int> result = new CustomList<int>();
+
+            list.Add(1);
+            list.Add(3);
+            list.Add(5);
+            secondList.Add(2);
+            secondList.Add(4);
+            secondList.Add(6);
+
+            result = list + secondList;
+            int expected = 6;
+            int actual = result.Count;
+
+            Assert.AreEqual(expected, actual);
+        }
+        //OverLoad -Operator//////////////////////////////////////////////////////////////////////////////
+        [TestMethod]
+
+        public void MinusOverload_TwoInstances_VerifyResult()
+        {
+            CustomList<int> list = new CustomList<int>();
+            CustomList<int> secondList = new CustomList<int>();
+            CustomList<int> result = new CustomList<int>();
+
+            list.Add(1);
+            list.Add(3);
+            list.Add(5);
+            secondList.Add(2);
+            secondList.Add(1);
+            secondList.Add(6);
+
+            result = list - secondList;
+
+        }
+
+    }    
 
 }
