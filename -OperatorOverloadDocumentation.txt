@@ -1,0 +1,57 @@
+CustomList<T> operator -(T) Method
+
+Namespace: CustomListProject
+Assemblies:System.Collections.Generic, System.Linq, System.Text, System.Threading.Tasks
+
+Subtract one instance of a custom list class from another instance of a custom list class.
+
+C#
+public static CustomList<T> operator -(CustomList<T> item1, CustomList<T> item2)
+
+PARAMETERS
+item1 T item2 T
+The objects to remove from the CustomList<T>.
+
+RETURNS
+valueRemains T
+true if item1 is found in item2; loop is broken. Otherwise false and item1[i] is added to valueRemains T.
+
+IMPLEMENTS
+
+operator -(T)
+
+EXAMPLES
+The following example demonstrates how to subtract an instance of a custom list class from another custom list class.
+
+C#
+ public static CustomList<T> operator -(CustomList<T> list1, CustomList<T> list2)
+        {
+            
+            CustomList<T> valueRemains = new CustomList<T>();
+            for (int i = 0; i < list1.Count; i++)
+            {
+                bool wasFound = false;
+                for (int j =0; j < list2.Count; j++)
+                {
+                    if (list1[i].Equals(list2[j]))
+                    {
+                        wasFound = true;
+                        break;
+                    }                                        
+                }
+                if(wasFound == false)
+                {
+                    valueRemains.Add(list1[i]);
+                }               
+            }
+            return valueRemains;
+        }
+
+C# language specification
+For more information, see the following section of the C# language specification
+https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/language-specification/introduction
+
+See also
+https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/operator-overloading
+
+Feedback:
