@@ -7,7 +7,7 @@ namespace CustomListClassTest
   
     public class UnitTest1
     {
-        //Add An Object/////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////Add An Object/////////////////////////////////////////////////////////////////////////////////////////////////////
         [TestMethod]
         public void Add_OneValue_IncrementCount()
         {
@@ -108,7 +108,7 @@ namespace CustomListClassTest
             Assert.AreEqual(expected, list[0]);
 
         }
-        //Remove An Object/////////////////////////////////////////////////////////////////////////////////////////////////
+ ////////////////Remove An Object/////////////////////////////////////////////////////////////////////////////////////////////////
         [TestMethod]
         public void Remove_OneValue_DecrementCount()
         {
@@ -185,7 +185,7 @@ namespace CustomListClassTest
 
         }
 
-        //Convert ToString//////////////////////////////////////////////////////////////////////////////////////////////
+ ////////////////////////////////Convert ToString////////////////////////////////////////////////////////////////////////////
         [TestMethod]
         public void Convert_SingleValueIndex_ToString()
         {
@@ -197,10 +197,7 @@ namespace CustomListClassTest
             list.Add(value1);
             string actual = list.ToString();
 
-            Assert.AreEqual(expected, actual);
-                
-
-
+            Assert.AreEqual(expected, actual);                
 
         }
 
@@ -230,7 +227,7 @@ namespace CustomListClassTest
 
         }
     
-        //OverLoad +Operator/////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////OverLoad +Operator/////////////////////////////////////////////////////////////////////////////////////
         [TestMethod]
         public void AddOverload_TwoInstances_VerifyIndexZero()
         {
@@ -250,8 +247,6 @@ namespace CustomListClassTest
             int actual = result[0];
 
             Assert.AreEqual(expected, actual);
-
-
         }
   
         [TestMethod]
@@ -295,7 +290,8 @@ namespace CustomListClassTest
 
             Assert.AreEqual(expected, actual);
         }
-        //OverLoad -Operator//////////////////////////////////////////////////////////////////////////////
+
+        ///////////////////////OverLoad -Operator//////////////////////////////////////////////////////////////////////////////
         [TestMethod]
 
         public void MinusOverload_SubtractTwoInstances_VerifyResult()
@@ -315,6 +311,27 @@ namespace CustomListClassTest
             int expected = 5;
             int actual = result[0];
             Assert.AreEqual(expected, actual);
+        }
+/////////////////////Zipper//////////////////////////////////////////////////////////////////////////////////////////////
+        [TestMethod]
+        public void Zip_TwoInstances_ReturnZippedValues()
+        {
+            CustomList<int> odd = new CustomList<int>();
+            CustomList<int> even = new CustomList<int>();
+            CustomList<int> result = new CustomList<int>();
+
+            odd.Add(1);
+            odd.Add(3);
+            odd.Add(5);
+            even.Add(2);
+            even.Add(4);
+            even.Add(6);
+
+            result = odd + even;
+            int expected = 2;
+            int actual = result[1];
+            Assert.AreEqual(expected, actual);
+
 
         }
 
