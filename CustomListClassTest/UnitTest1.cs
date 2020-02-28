@@ -3,15 +3,14 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using CustomListClassProject;
 namespace CustomListClassTest
 {
-    [TestClass]
-  
+    [TestClass]  
     public class UnitTest1
     {
-/////////////////Add An Object/////////////////////////////////////////////////////////////////////////////////////////////////////
+    /////Add An Object//////////////////////////////////////////////////////////////////////
+    
         [TestMethod]
         public void Add_OneValue_IncrementCount()
         {
-
             //Arrange
             CustomList<int> list = new CustomList<int>();
             int value1 = 2;
@@ -25,7 +24,6 @@ namespace CustomListClassTest
         }
 
         [TestMethod]
-
         public void Add_SecondValue_VerifyIndex0()
         {
             CustomList<int> list = new CustomList<int>();
@@ -35,6 +33,7 @@ namespace CustomListClassTest
 
             Assert.AreEqual(expected, list[0]);
         }
+
         [TestMethod]
         public void Add_TwoValues_VerifyIndex1()
         {
@@ -48,9 +47,8 @@ namespace CustomListClassTest
             actual = list[1];
 
             Assert.AreEqual(expected, actual);
-
-
         }
+
         [TestMethod]
         public void Add_Values_ReturnCount()
         {
@@ -64,11 +62,10 @@ namespace CustomListClassTest
             actual = list.Count;
 
             Assert.AreEqual(expected, actual );
-
         }
+
         [TestMethod]
         public void Add_Value_ToLastIndex()
-
         {
             CustomList<int> list = new CustomList<int>();
             int expected = 30;
@@ -84,10 +81,9 @@ namespace CustomListClassTest
             list.Add(value4);
             list.Add(value5);
 
-            Assert.AreEqual(expected, list[4]);            
-            
-
+            Assert.AreEqual(expected, list[4]);                        
         }
+
         [TestMethod]
         public void Add_Value_ValueAt0Index()
         {
@@ -106,9 +102,9 @@ namespace CustomListClassTest
             list.Add(value5);
 
             Assert.AreEqual(expected, list[0]);
-
         }
- ////////////////Remove An Object/////////////////////////////////////////////////////////////////////////////////////////////////
+    /////Remove An Object///////////////////////////////////////////////////////////////////
+    
         [TestMethod]
         public void Remove_OneValue_DecrementCount()
         {
@@ -122,8 +118,8 @@ namespace CustomListClassTest
             int actual = list.Count;
 
             Assert.AreEqual(expected, actual);
-
         }
+
         [TestMethod]
         public void Remove_FirstValue_VerifyIndex0()
         {
@@ -138,8 +134,8 @@ namespace CustomListClassTest
             list.Remove(value1);
 
             Assert.AreEqual(expected, list[0]);
-
         }
+
         [TestMethod]
         public void Remove_TwoValues_VerifyIndex1()
         {
@@ -162,6 +158,7 @@ namespace CustomListClassTest
 
             Assert.AreEqual(expected, list[1]);
         }
+
         [TestMethod]
         public void Remove_Value_FromFirstIndexFound()
         {
@@ -182,14 +179,13 @@ namespace CustomListClassTest
             list.Remove(5);
 
             Assert.AreEqual(expected, list[0]);
-
         }
 
- ////////////////////////////////Convert ToString////////////////////////////////////////////////////////////////////////////
+    /////Convert ToString/////////////////////////////////////////////////////////////////////
+    
         [TestMethod]
         public void Convert_SingleValueIndex_ToString()
         {
-
             CustomList<int> list = new CustomList<int>();
             string expected = "5";
             int value1 = 5;
@@ -198,7 +194,6 @@ namespace CustomListClassTest
             string actual = list.ToString();
 
             Assert.AreEqual(expected, actual);                
-
         }
 
         [TestMethod]
@@ -212,8 +207,7 @@ namespace CustomListClassTest
             int value2 = 4;
             int value3 = 3;
             int value4 = 2;
-            int value5 = 1;
-           
+            int value5 = 1;           
 
             list.Add(value1);
             list.Add(value2);
@@ -222,12 +216,11 @@ namespace CustomListClassTest
             list.Add(value5);
             string actual = list.ToString();
             
-
             Assert.AreEqual(expected, actual);
 
-        }
+        }    
+    /////OverLoad +Operator//////////////////////////////////////////////////////////////////////
     
-////////////////////////////////////OverLoad +Operator/////////////////////////////////////////////////////////////////////////////////////
         [TestMethod]
         public void AddOverload_TwoInstances_VerifyIndexZero()
         {
@@ -290,10 +283,9 @@ namespace CustomListClassTest
 
             Assert.AreEqual(expected, actual);
         }
-
-        ///////////////////////OverLoad -Operator//////////////////////////////////////////////////////////////////////////////
+        /////OverLoad -Operator////////////////////////////////////////////////////////////////////
+        
         [TestMethod]
-
         public void MinusOverload_SubtractTwoInstances_VerifyResult()
         {
             CustomList<int> list = new CustomList<int>();
@@ -312,7 +304,8 @@ namespace CustomListClassTest
             int actual = result[0];
             Assert.AreEqual(expected, actual);
         }
-/////////////////////Zipper//////////////////////////////////////////////////////////////////////////////////////////////
+    /////Zipper////////////////////////////////////////////////////////////////////////////////////
+    
         [TestMethod]
         public void Zip_TwoInstances_ReturnZippedValues()
         {
@@ -327,12 +320,10 @@ namespace CustomListClassTest
             even.Add(4);
             even.Add(6);
 
-            result = odd + even;
+            result = CustomList<int>.Zip(odd, even);
             int expected = 2;
             int actual = result[1];
             Assert.AreEqual(expected, actual);
-
-
         }
 
     }    
